@@ -19,6 +19,8 @@ public class Voiture {
 
     @Override
     public String toString() {
+        // MR Le formatage du numéro de la voiture est incorrect
+        // Il faut utiliser un DecimalFormat pour afficher le numéro avec un zéro devant ('000')
         return "Voiture N°" + numero + " de l'équipe '" + nomEquipe + "'";
         //format (000)
     }

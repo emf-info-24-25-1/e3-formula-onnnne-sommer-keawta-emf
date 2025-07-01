@@ -52,6 +52,8 @@ public class Pilote {
         Pneu pneuTrouve = null;
 
         for (int i = 0; i < pneusEnReserve.length; i++) {
+            //MR Il faut aussi vérifier si pneusEnReserve[i] n'est pas null avant de comparer les types
+            //MR Il faut mieux utiliser == pour comparer les types de pneus
             if (pneusEnReserve[i].getType().equals(type)) {
                 pneuTrouve = pneusEnReserve[i];
                 pneusEnReserve[i] = null;
@@ -67,6 +69,7 @@ public class Pilote {
 
         for (int i = 0; i < pneusEnReserve.length; i++) {
             if (pneusEnReserve[i] != null) {
+                //MR Il faut mieux utiliser == pour comparer les types de pneus
                 if (pneusEnReserve[i].getType().equals(type)) {
                     compteurPneusEnReserveType++;
                 }
@@ -89,6 +92,7 @@ public class Pilote {
     }
 
     public Pneu[] getPneusEnReserveSansTrous() {
+        //MR Il faut créer un tableau de la taille des pneus présents en réserve (getNombrePneusEnReserve())
         Pneu[] nouveauTableau = new Pneu[pneusEnReserve.length];
 
         for (int i = 0; i < pneusEnReserve.length; i++) {
@@ -115,11 +119,13 @@ public class Pilote {
             }
         }
 
+        //MR Il faut vérifier si getNombrePneusEnReserve() n'est pas 0 pour éviter la division par zéro
         double moyenneDouble = totalPression / getNombrePneusEnReserve();
         moyenne += moyenneDouble;
 
         return moyenne;
 
+        //MR Manque le formatage de la moyenne en chaîne de caractères
         // format (0.00)
     }
 
